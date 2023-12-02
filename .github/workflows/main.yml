@@ -42,12 +42,16 @@ jobs:
       - 
         name: Test with django tests
         env:
+          DEBUG: ${{ secrets.DJANGO_DEBUG }}
+          SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
           POSTGRES_USER: django_user
           POSTGRES_PASSWORD: django_password
           POSTGRES_DB: django_db    
           DB_HOST: 127.0.0.1
           DB_PORT: 5432     
         run: |
+          export DEBUG          
+          export SECRET_KEY          
           cd backend
           python manage.py test
   
