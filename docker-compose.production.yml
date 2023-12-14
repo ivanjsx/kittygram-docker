@@ -30,7 +30,7 @@ services:
   gateway:
     image: ivanjsx/kittygram_gateway:latest
     ports:
-      - 9000:80
+      - 8000:80
     volumes:
       - media_volume:/media
       - static_volume:/static
